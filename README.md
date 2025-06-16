@@ -24,7 +24,7 @@ This repository contains scripts for:
 
 - `tx_rx/` — Scripts dedicated to signal transmission, reception and data logging.
 - `processing/` — Signal processing algorithms, feature extraction procedures, auxiliary or helper functions.
-- `README.md` — Projct documentation.
+- `README.md` — Project documentation.
 - `LICENSE` — Software license information.
   
 > Please, note that the recorded datasets utilised during experimentation are not included in this repository due to size constraints.
