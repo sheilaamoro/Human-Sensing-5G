@@ -6,7 +6,7 @@
 % Degree: Bachelor's Degree in Telecommunications Engineering
 % Date: June, 2025
 % File: RX_USRP.m
-
+%
 % Description:
 % This script receives and stores IQ samples using a USRP device for a
 % series of repeated measurements.

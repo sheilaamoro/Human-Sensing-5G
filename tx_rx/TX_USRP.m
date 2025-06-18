@@ -1,4 +1,3 @@
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title: Human detection by 5G radio signals — Transmitter Script
 % Author: Sheila Moro Robledo
@@ -6,7 +5,7 @@
 % Degree: Bachelor's Degree in Telecommunications Engineering
 % Date: June, 2025
 % File: TX_USRP.m
-
+%
 % Description:
 % This script generates and transmits an OFDM singal using a selected sequence
 % (Zadoff-Chu, CRS, or Golay) through a USRP device. The signal is transmitted
@@ -18,23 +17,23 @@ clear; close all; clc
 
 %% ---- OFDM Parameters Definition -----
 
-Nfft = 104;                         % FFT Size
-Ncp = 7;                            % Cyclic prefix length
+Nfft = 208;                         % FFT Size
+Ncp = 13;                            % Cyclic prefix length
 ofdmSampleRate = 25e6;              % Sampling rate (Hz)
 NofdmSyms = 100;                    % Number of OFDM symbols in the frame
 scs = ofdmSampleRate/(1e3*Nfft);    % Subcarrier spacing (kHz)
 
 % Choose the sequence length depending on the type
-N_zc = 103;                        % Zadoff-Chu sequence length (active data)
-%N_crs = 103;                      % CRS sequence length (active data)
+N_zc = 199;                        % Zadoff-Chu sequence length (active data)
+%N_crs = 207;                      % CRS sequence length (active data)
 %N_golay = 2^(floor(log2(Nfft)));  % Golay complementary sequences length (active data)
 
 %% ---- Transmit Signal Generation ----
 
 % Uncomment one of the following lines depending on the desired sequence
-[txSignal, dataGrid, nullIndices] = generacion_txSignalZC(Nfft,Ncp,ofdmSampleRate,N_zc,NofdmSyms);
-%[txSignal, dataGrid, nullIndices] = generacion_txSignalCRS(Nfft,Ncp,ofdmSampleRate,N_crs,NofdmSyms);
-%[txSignal, dataGrid, nullIndices] = generacion_txSignalGolayAlterno(Nfft, Ncp, ofdmSampleRate, N_golay, NofdmSyms);
+[txSignal, dataGrid, nullIndices] = generation_txSignalZC(Nfft,Ncp,ofdmSampleRate,N_zc,NofdmSyms);
+%[txSignal, dataGrid, nullIndices] = generation_txSignalCRS(Nfft,Ncp,ofdmSampleRate,N_crs,NofdmSyms);
+%[txSignal, dataGrid, nullIndices] = generation_txSignalGolay(Nfft, Ncp, ofdmSampleRate, N_golay, NofdmSyms);
 
 %% ---- USRP Transmitter Setup ----
 
